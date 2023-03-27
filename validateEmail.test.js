@@ -8,7 +8,7 @@ describe("describe", function() {
   })
  */
 let assert = chai.assert;
-
+let expect = chai.expect
   describe("validateEmail", function(){
     describe('valid string', function(){
         it ('not an empty string', function(){
@@ -19,8 +19,13 @@ let assert = chai.assert;
         it ('not an empty string', function(){
             assert.equal(validateEmail('    '),false);
         });
-        it ('length > 5', function(){
-            assert.lengthOf(validateEmail > 4 , false)
+        it ('length < 5', function(){
+            assert.equal(validateEmail('e@g.'), false);
+            assert.equal(validateEmail('e@g.c'), true);
+        });
+        it('@ single character', function(){
+            assert.equal(validateEmail('@'), false);
+            
         })
     })
     describe('valid data', function(){
